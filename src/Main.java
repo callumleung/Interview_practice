@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 
 public class Main {
 
@@ -44,6 +47,20 @@ public class Main {
       /* String testString = "Hello there, General Kenobi.";
        System.out.println(reverseSentence(testString));*/
 
+      /*String test1 = "fdebca";
+      String test2 = "abcdef";
+      System.out.println(isAnagram(test1, test2));*/
+
+      //System.out.println(reverseInt(12345));
+
+        //System.out.println(firstNonRepeatedLetter("Hello there, General Kenobi"));
+
+      /*  LinkedList<Integer> testLinkedList = new LinkedList<Integer>();
+        testLinkedList.add(1);
+        testLinkedList.add(2);
+        testLinkedList.add(3);
+        testLinkedList.add(4);
+        System.out.println(middleOfLinkList(testLinkedList));*/
 
 
 
@@ -235,7 +252,99 @@ public class Main {
         return out;
     }
 
+    private static boolean isAnagram(String a, String b){
 
+        if (a.length() != b.length()){
+            return false;
+        }
+
+       for (int i = 0; i < a.length(); i++){
+           if (!b.contains(String.valueOf(a.charAt(i)))){
+               return false;
+           }
+           if (!a.contains(String.valueOf(b.charAt(i)))){
+               return false;
+           }
+       }
+
+       return true;
+    }
+
+    private static int reverseInt(int input){
+
+        ArrayList<Integer> digits = new ArrayList<>();
+        int temp = input;
+
+        while(temp != 0){
+
+            int tempDigit = temp % 10;
+            digits.add(tempDigit);
+            temp = temp /10;
+        }
+
+        //Collections.reverse(digits);
+
+        int total =  0;
+        for (int i: digits){
+            total = total*10 + i;
+        }
+
+        return total;
+    }
+
+    private static char firstNonRepeatedLetter(String input){
+
+        input = input.toLowerCase();
+        for (int i = 0; i < input.length(); i ++){
+
+            boolean notRepeated = true;
+
+            for (int j = i + 1; j < input.length(); j++){
+
+                if (input.charAt(j) == input.charAt(i)){
+                    notRepeated = false;
+                }
+            }
+            if (notRepeated == true){
+                return input.charAt(i);
+            }
+        }
+        return 'z';
+    }
+
+    private static int middleOfLinkList(LinkedList<Integer> input){
+
+        int midPoint = 0;
+        if (input.size() % 2 == 0){
+            midPoint = input.size()/2 -1;
+        } else if (input.size() % 2 != 0){
+            midPoint = input.size()/2 ;
+        }
+
+        return input.get(midPoint);
+    }
+
+    private static int[][] matrixSum(int[][] a, int[][] b){
+
+        int[][] sum = new int[a.length][a[0].length];
+
+        if (a.length!= b.length || a[0].length != b[0].length){
+
+            throw new  ArithmeticException("matrices not same size");
+        } else {
+            for (int i = 0; i < a.length; i ++){
+                for (int j = 0; j < a[0].length; j++){
+                    sum[i][j] = a[i][j] + b[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+
+    private static String removeWhiteSpace(String input){
+
+        return  input.replace("\\s+", "");
+    }
 
 
 
