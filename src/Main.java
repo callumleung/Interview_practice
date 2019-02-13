@@ -409,25 +409,6 @@ public class Main {
 
     }
 
-    private static int[] removeDuplicates(int[] input){
-
-        Set<Integer> hashedInput = new HashSet<>();
-
-        //HashSet does not admit duplicates
-        for (int i: input){
-            hashedInput.add(input[i]);
-        }
-
-        //cast back to array
-        Integer[] returnArray = hashedInput.toArray(new Integer[hashedInput.size()]);
-        int[] rA2 = new int[hashedInput.size()];
-        for (Integer i: hashedInput){
-            rA2[i] = hashedInput.
-        }
-
-
-
-    }
 
 
 
