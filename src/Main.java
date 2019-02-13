@@ -7,10 +7,10 @@ public class Main {
 
 
         // printFib( 90);
-        //System.out.println(checkPrime(10));
-        //System.out.println(checkPrime(2));
-        //System.out.println(checkPrime(71));
-
+        /*System.out.println(checkPrime(10));
+        System.out.println(checkPrime(13));
+        System.out.println(checkPrime(71));
+*/
         //System.out.println(checkPalindrom("car"));
         //System.out.println(checkPalindrome("boob"));
 
@@ -185,15 +185,15 @@ public class Main {
     private static String reverseString(String input) {
 
         int j = input.length();
-        String reversed = "";
+        StringBuilder reversed = new StringBuilder();
 
         for (int i = 0; i < j; i++) {
 
-            reversed += input.charAt(j - i - 1);
+            reversed.append(input.charAt(j - i - 1));
 
         }
 
-        return reversed;
+        return reversed.toString();
 
     }
 
